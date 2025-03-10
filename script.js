@@ -7,7 +7,7 @@ async function fetchCountryByName(country) {
         const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
         if (!res.ok) throw new Error('Country not found');
         const data = await res.json();
-        displayCountryInfo(data[0]); // Display the first matching country
+        displayCountryInfo(data[0]); 
     } catch (error) {
         countryInfo.innerHTML = `<p>Error: ${error.message}</p>`;
         borderingCountries.innerHTML = '';
@@ -23,7 +23,7 @@ function displayCountryInfo(country) {
         <img src="${country.flags.png}" alt="${country.name.common} flag">
     `;
 
-    // Display bordering countries
+  
     if (country.borders) {
         borderingCountries.innerHTML = '<h3>Bordering Countries:</h3>';
         country.borders.forEach(async (border) => {
